@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+ffmpeg -y -i calib_0707_0.mp4 -i calib_0707_1.mp4 -i calib_0707_2.mp4 -i calib_0707_3.mp4 -i calib_0707_4.mp4 -i calib_0707_5.mp4 -filter_complex "[0][1][2]hstack=inputs=3[v1];[3][4][5]hstack=inputs=3[v2];[v1][v2]vstack=inputs=2[vout]" -map "[vout]" -crf 10 calib_0707_comp.mp4
+ffmpeg -y -i calib_0707_0_deblur.mp4 -i calib_0707_1_deblur.mp4 -i calib_0707_2_deblur.mp4 -i calib_0707_3_deblur.mp4 -i calib_0707_4_deblur.mp4 -i calib_0707_5_deblur.mp4 -filter_complex "[0][1][2]hstack=inputs=3[v1];[3][4][5]hstack=inputs=3[v2];[v1][v2]vstack=inputs=2[vout]" -map "[vout]" -crf 10 calib_0707_comp_deblur.mp4
+ffmpeg -y -i calib_0707_0_blur.mp4 -i calib_0707_1_blur.mp4 -i calib_0707_2_blur.mp4 -i calib_0707_3_blur.mp4 -i calib_0707_4_blur.mp4 -i calib_0707_5_blur.mp4 -filter_complex "[0][1][2]hstack=inputs=3[v1];[3][4][5]hstack=inputs=3[v2];[v1][v2]vstack=inputs=2[vout]" -map "[vout]" -crf 10 calib_0707_comp_blur.mp4
